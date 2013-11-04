@@ -1,0 +1,43 @@
+#include<iostream>
+#include<vector>
+#define INF 100000000
+using namespace std;
+struct Color
+{
+	int r;
+	int g;
+	int b;
+};
+vector<Color> color;
+int main()
+{
+	int r,g,b;
+	for(int k=0;k<16;++k)
+	{
+		cin>>r>>g>>b;
+		Color c;
+		c.r=r;
+		c.g=g;
+		c.b=b;
+		color.push_back(c);
+	}
+	vector<Color>::size_type i,j;
+	while((cin>>r>>g>>b)&&r>-1)
+	{
+		int pos=0;int sum=INF;
+		for(j=0;j<color.size();++j)
+		{
+			int d=0;
+			d=(r-color.at(j).r)*(r-color.at(j).r)+
+				(g-color.at(j).g)*(g-color.at(j).g)+
+				(b-color.at(j).b)*(b-color.at(j).b);
+			if(d<sum)
+			{
+				sum=d;
+				pos=j;
+			}
+		}
+		printf("(%d,%d,%d) maps to (%d,%d,%d)\n",r,g,b,color.at(pos).r,color.at(pos).g,color.at(pos).b);
+	}
+	return 0;
+}

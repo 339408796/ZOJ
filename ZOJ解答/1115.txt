@@ -1,0 +1,34 @@
+#include<iostream>
+#include<string>
+//#include<cstdio>
+using namespace std;
+
+
+string plusEveryDigit(string numString)
+{
+	int temp=0;
+	for(string::size_type i=0;i<numString.size();++i)
+	{
+		temp+=numString.at(i)-'0';
+	}
+	char a[1000];
+	sprintf(a,"%d",temp);
+	string result=a;
+	return result;
+}
+
+int main()
+{
+	string targetNum;
+	while(1){
+		cin>>targetNum;
+		while(targetNum.size()>=2)
+		{
+			targetNum=plusEveryDigit(targetNum);
+		}
+		if(targetNum.at(0)-'0'==0)
+			return 0;
+		cout<<targetNum<<endl;
+	}
+	return 0;
+}
