@@ -1,0 +1,82 @@
+#include<iostream>
+#include<vector>
+#include<list>
+#include<algorithm>
+using namespace std;
+vector<int> num;
+vector<int> iVec;
+list<int> pList;
+
+void p(vector<int> vec,int n)
+{
+	int count=0;
+	for(int i=1;i<=n;++i)
+	{
+		count=0;
+		vector<int>::iterator end=find(vec.begin(),vec.end(),i);
+		for(vector<int>::iterator it=vec.begin();it<end;++it)
+		{
+			if(*it>i)
+				count++;
+		}
+		iVec.push_back(count);
+	}
+	for(vector<int>::size_type i=0;i<iVec.size();++i)
+	{
+		if(i==0)
+			cout<<iVec.at(i);
+		else
+			cout<<" "<<iVec.at(i);
+	}
+	cout<<endl;
+}
+void l(vector<int> vec,int n)
+{
+	//reverse(vec.begin(),vec.end());
+	for(int i=n;i>=1;--i)
+	{
+		int temp=vec.at(i-1);
+		list<int>::iterator pos=pList.begin();
+		while(temp--)
+			pos++;
+		pList.insert(pos,i);
+	}
+	for(list<int>::iterator i=pList.begin();i!=pList.end();++i)
+	{
+		if(i==pList.begin())
+			cout<<*i;
+		else
+			cout<<" "<<*i;
+	}
+	cout<<endl;
+}
+int main()
+{
+	int n;
+	while(1)
+	{
+		cin>>n;
+		if(n==0)
+			return 0;
+		char c;
+		cin>>c;
+		for(int i=0;i<n;++i)
+		{
+			int m;
+			cin>>m;
+			num.push_back(m);
+		}
+		if(c=='P')
+		{
+			p(num,n);
+		}
+		if(c=='I')
+		{
+			l(num,n);
+		}
+		num.clear();//就是没有把上次的数据清空才会第二次的时候一直出错
+		iVec.clear();
+		pList.clear();
+	}
+	return 0;
+}

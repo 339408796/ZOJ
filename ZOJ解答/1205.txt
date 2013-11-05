@@ -1,0 +1,81 @@
+#include<iostream>
+#include<map>
+#include<algorithm>
+#include<string>
+//#include<cstring>
+using namespace std;
+map<char,int>mapChar;
+map<int,char>mapInt;
+
+void initData()
+{
+	mapChar['0']=0;mapChar['1']=1;
+	mapChar['2']=2;mapChar['3']=3;
+	mapChar['4']=4;mapChar['5']=5;
+	mapChar['6']=6;mapChar['7']=7;
+	mapChar['8']=8;mapChar['9']=9;
+	mapChar['a']=10;mapChar['b']=11;
+	mapChar['c']=12;mapChar['d']=13;
+	mapChar['e']=14;mapChar['f']=15;
+	mapChar['g']=16;mapChar['h']=17;
+	mapChar['i']=18;mapChar['j']=19;
+	mapInt[0]='0';mapInt[1]='1';
+	mapInt[2]='2';mapInt[3]='3';
+	mapInt[4]='4';mapInt[5]='5';
+	mapInt[6]='6';mapInt[7]='7';
+	mapInt[8]='8';mapInt[9]='9';
+	mapInt[10]='a';mapInt[11]='b';
+	mapInt[12]='c';mapInt[13]='d';
+	mapInt[14]='e';mapInt[15]='f';
+	mapInt[16]='g';mapInt[17]='h';
+	mapInt[18]='i';mapInt[19]='j';
+	mapInt[0]='0';mapInt[0]='0';
+	mapInt[0]='0';mapInt[0]='0';
+
+}
+int main()
+{
+	initData();
+	string a,b,result;
+	char c[110];
+
+	while(cin>>a>>b)
+	{
+		int k=0;
+		reverse(a.begin(),a.end());
+		reverse(b.begin(),b.end());
+		int carry=0;
+		int temp;
+		string::size_type i,j;
+		for(i=0,j=0;i<a.size()&&j<b.size();++i,++j)
+		{
+			temp=mapChar[a.at(i)]+mapChar[b.at(j)]+carry;
+			carry=temp/20;
+			temp%=20;
+			c[k++]=mapInt[temp];
+		}
+		while(i<a.size())
+		{
+			temp=mapChar[a.at(i)]+carry;
+			carry=temp/20;
+			temp%=20;
+			c[k++]=mapInt[temp];
+			++i;
+		}
+		while(j<b.size())
+		{
+			temp=mapChar[b.at(j)]+carry;
+			carry=temp/20;
+			temp%=20;
+			c[k++]=mapInt[temp];
+			++j;
+		}
+		if(carry==1)
+			c[k++]=carry+'0';
+		//cout<<"k = "<<k<<endl;
+		for(int i=k-1;i>=0;--i)
+			cout<<c[i];
+		cout<<endl;
+	}
+	return 0;
+}

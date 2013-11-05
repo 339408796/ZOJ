@@ -1,0 +1,45 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<cstring>
+using namespace std;
+vector<string> wordList;
+int main()
+{
+	int caseNum;
+	int lineNum;
+	cin>>caseNum;
+	while(caseNum--)
+	{
+		cin>>lineNum;
+		getchar();
+		while(lineNum--)
+		{
+			char a[100];
+			cin.getline(a,100,'\n');
+			char *charWord=NULL;
+			char *pNext=NULL;
+			charWord=strtok_s(a," ",&pNext);//在vs2012中，想scanf，printf，strtok等都是报错的，需要在参数里面加一个数字的参数
+			while(charWord!=NULL)
+			{
+				string strWord(charWord);
+				reverse(strWord.begin(),strWord.end());
+				wordList.push_back(strWord);
+				charWord=strtok_s(NULL," ",&pNext);
+			}
+			for(int i=0;i<wordList.size();++i)
+			{
+				if(i==0)
+					cout<<wordList.at(i);
+				else
+					cout<<" "<<wordList.at(i);
+			}
+			cout<<endl;
+			wordList.clear();
+		}
+		if(caseNum>0)
+			cout<<endl;
+	}
+	return 0;
+}
