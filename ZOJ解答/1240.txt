@@ -1,0 +1,26 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+int main()
+{
+	int lineNum;
+	cin>>lineNum;
+	char str[100];
+	int k=0;
+	while(lineNum--)
+	{
+		cin>>str;
+		for(int i=0;str[i]!='\0';++i)
+		{
+			if(str[i]=='Z')
+				str[i]='A';
+			else
+				str[i]=str[i]+1;
+		}
+		cout<<"String #"<<++k<<endl;
+		cout<<str<<endl<<endl;
+		memset(str,0,sizeof(str)/sizeof(char));
+	}
+	return 0;
+}

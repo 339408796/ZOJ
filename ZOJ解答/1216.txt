@@ -1,0 +1,20 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	int n;
+	double sum;
+	printf("# Cards  Overhang\n");
+	while(cin>>n)
+	{
+		sum=0;
+		for(int i=1;i<=n;++i)
+		{
+			sum+=1.0/(2*i);
+		}
+		printf("%5d%10.3lf\n",n,sum);
+	}
+	return 0;
+}

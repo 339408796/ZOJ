@@ -1,0 +1,43 @@
+#include<iostream>
+#include<cstring>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a,b,c;
+	int k=1;
+	while(cin>>a>>b>>c)
+	{
+		if(a==0)
+			break;
+		printf("Triangle #%d\n",k++);
+		double res=0;
+		if(a==-1)
+		{
+			if(c>b)
+			{
+				res=sqrt(c*c-b*b);
+				printf("a = %.3lf\n\n",res);
+			}
+			else
+				printf("Impossible.\n\n");
+		}
+		else if(b==-1)
+		{
+			if(c>a)
+			{
+				res=sqrt(c*c-a*a);
+				printf("b = %.3lf\n\n",res);
+			}
+			else
+				printf("Impossible.\n\n");
+		}
+		else if(c==-1)
+		{
+			res=sqrt(a*a+b*b);
+			printf("c = %.3lf\n\n",res);
+		}
+	}
+	return 0;
+}
