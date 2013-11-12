@@ -1,0 +1,52 @@
+#include<iostream>
+#include<cstring>
+#include<cstdio>
+#include<cmath>
+using namespace std;
+int a[55];
+
+int gcb(int a,int b)
+{
+	if(b==0)
+		return a;
+	else
+		return gcb(b,a%b);
+}
+
+
+
+int main()
+{
+	int n;
+	while(cin>>n)
+	{
+		int i=0,j=0;
+		if(n==0)
+			return 0;
+		for(i=0;i<n;++i)
+		{
+			cin>>a[i];
+		}
+		int sumPair=n*(n-1)/2;
+		int count=0;
+		for(i=0;i<n;++i)
+			for(j=i+1;j<n;++j)
+			{
+				if(gcb(a[i],a[j])==1)
+					count++;
+			}
+		
+		float result=0;
+		if(count==0)
+			printf("No estimate for this data set.\n");
+		else
+		{
+			result=sqrt(6.0/((float)count/(float)sumPair));
+		printf("%.6f\n",result);
+		}
+		
+		memset(a,0,55);
+
+	}
+	return 0;
+}
