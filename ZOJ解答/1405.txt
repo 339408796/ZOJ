@@ -1,0 +1,62 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<cstdio>
+using namespace std;
+vector<char>c1,c2;
+int main()
+{
+	string a;
+	int n;
+	while(1)
+	{
+		cin>>n;
+		
+		if(n==0)
+			return 0;
+		getchar();
+		getline(cin,a);
+	//	cout<<a<<endl;
+		string::size_type i;
+		vector<char>::size_type j,k;
+		int count=0;
+		char b;
+		for(i=0;i<a.size();++i)
+		{
+			b=a.at(i);
+			for(j=0;j<c1.size();++j)
+			{
+				if(c1.at(j)==b)
+				{
+					c1.erase(c1.begin()+j);
+					j--;
+					n++;
+					break;
+				}
+			}
+			if(j==c1.size() && n>0)
+			{
+				n--;
+				c1.push_back(b);
+			}else if(j==c1.size() && n==0)
+			{
+				for(k=0;k<c2.size();++k)
+				{
+					if(c2.at(k)==b)
+					{
+						break;
+					}
+				}
+				if(k==c2.size())
+					c2.push_back(b);
+			}
+		}
+		if(c2.size()==0)
+			printf("All customers tanned successfully.\n");
+		else
+			printf("%d customer(s) walked away.\n",c2.size());
+		c1.clear();
+		c2.clear();
+	}
+	return 0;
+}

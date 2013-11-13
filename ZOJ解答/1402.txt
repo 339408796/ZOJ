@@ -1,0 +1,36 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+using namespace std;
+int a[1000];
+int main()
+{
+	int n;
+	while(cin>>n)
+	{
+		if(n==0)
+			return 0;
+		memset(a,0,1000);
+		for(int i=1;i<=n;++i)
+			cin>>a[i];
+		int i=2,j=n-1;
+		int counti=a[1];int countj=a[n];
+		while(i<=j)
+		{
+			if(counti>countj)
+				countj+=a[j--];
+			else if(counti<countj)
+				counti+=a[i++];
+			else
+			{
+				counti+=a[i++];
+				countj+=a[j--];
+			}
+		}
+		if(counti==countj)
+			printf("Sam stops at position %d and Ella stops at position %d.\n",i-1,j+1);
+		else
+			printf("No equal partitioning.\n");
+	}
+	return 0;
+}

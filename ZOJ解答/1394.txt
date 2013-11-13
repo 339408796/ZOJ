@@ -1,0 +1,28 @@
+#include<iostream>
+#include<string>
+#include<cstdio>
+#define PI 3.14159
+using namespace std;
+
+int main()
+{
+	string start,end;
+	int r,g;
+	float gallons;
+	while(cin>>start)
+	{
+		if(start=="ENDOFINPUT")
+			return 0;
+		cin>>r>>gallons>>g;
+		if(g>180)g=360-g;
+		cin>>end;
+		float len=PI*r*g/90.0;
+		if(gallons*5>=len)
+			printf("YES %d\n",(int)(gallons-len/10));//ÎªÊ²Ã´³ýÒÔ10£¿
+		else
+		{
+			printf("NO %d\n",(int)(gallons*5));
+		}
+	}
+	return 0;
+}
