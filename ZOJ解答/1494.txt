@@ -1,0 +1,31 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	int n,u,d;
+
+	int count=0;
+	int len=0;
+	while(cin>>n>>u>>d)
+	{
+		count=0;
+		len=0;
+		if(n==0 && u==0 && d==0)
+			return 0;
+		while(1)
+		{
+			count++;
+			len+=u;
+			if(len>=n)
+			{
+				cout<<count<<endl;
+				break;
+			}
+			count++;
+			len-=d;
+		}
+	}
+	return 0;
+}

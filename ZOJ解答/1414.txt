@@ -1,0 +1,30 @@
+#include<iostream>
+#include<cstdio>
+using namespace std;
+int main()
+{
+	int n;
+	cin>>n;
+	while(n--)
+	{
+		int x,y;
+		cin>>x>>y;
+		if(x<y)
+		{
+			printf("No Number\n");
+		}
+		else if((x%2==0 && y%2==1)||(x%2==1 && y%2==0))
+		{
+			printf("No Number\n");
+		}
+		else if(x%2==0 && y%2==0)
+		{
+			cout<<x+y<<endl;
+		}
+		else
+		{
+			cout<<x+y-1<<endl;
+		}
+	}
+	return 0;
+}
