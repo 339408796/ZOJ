@@ -1,0 +1,28 @@
+#include<iostream>
+#include<cstdio>
+using namespace std;
+int main()
+{
+	float n;bool flag=1;
+	float num1,num2;
+	while(cin>>n)
+	{
+		if(n==999)
+		{
+			printf("End of Output\n");
+			return 0;
+		}
+		if(flag)
+		{
+			num1=n;
+			flag=0;
+		}
+		else
+		{
+			num2=n;
+			printf("%.2f\n",num2-num1);
+			num1=n;
+		}
+	}
+	return 0;
+}

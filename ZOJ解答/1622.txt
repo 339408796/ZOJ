@@ -1,0 +1,34 @@
+#include<iostream>
+#include<cstring>
+#include<cstdio>
+using namespace std;
+int a[10010];
+
+int switchTimes(int a[],int length)
+{
+	int i;
+	int times=0;
+	for(i=1;i<length;++i)
+	{
+		if(a[i]==a[i-1])
+		{
+			times++;
+			a[i]=!a[i];
+		}
+	}
+	return times;
+}
+
+int main()
+{
+	int n;
+	while(cin>>n)
+	{
+		int i=0;
+		for(i=0;i<n;++i)cin>>a[i];
+		int first=switchTimes(a,n);
+		memset(a,0,sizeof(a));
+		printf("%d\n",n-first<first?n-first:first);
+	}
+	return 0;
+}

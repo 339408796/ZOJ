@@ -1,0 +1,39 @@
+#include<iostream>
+#include<string>
+using namespace std;
+typedef struct{
+	int total;
+	string name;
+}student;
+
+student s[15];
+
+int main()
+{
+	int n;
+	while(cin>>n)
+	{
+		if(n==-1)
+			return 0;
+		int a,b,c,sum=0;
+		string name;
+		for(int i=0;i<n;++i)
+		{
+			cin>>a>>b>>c>>name;
+			s[i].total=a*b*c;
+			s[i].name=name;
+			sum+=s[i].total;
+		}
+		int ave=sum/n;
+		int bully=0,victim=0; 
+		for(int i=0;i<n;++i)
+		{
+			if(s[i].total>ave)
+				bully=i;
+			if(s[i].total<ave)
+				victim=i;
+		}
+		cout<<s[bully].name<<" took clay from "<<s[victim].name<<"."<<endl;
+	}
+	return 0;
+}
