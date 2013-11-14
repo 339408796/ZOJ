@@ -1,0 +1,16 @@
+#include<iostream>
+#include<cstdio>
+#define PI 3.1415927
+using namespace std;
+int main()
+{
+	float d,r,s;
+	int k=1;
+	while(cin>>d>>r>>s)
+	{
+		if(r==0)
+			return 0;
+		printf("Trip #%d: %.2f %.2f\n",k++,d*PI*r/63360,d*PI*r/17.6/s);
+	}
+	return 0;
+}
