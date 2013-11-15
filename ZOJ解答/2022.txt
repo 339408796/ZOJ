@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+int numOfFive(int num)
+{
+	int count=0;
+	int base=5;
+	while(num>=base)
+	{
+		count+=num/base;
+		base*=5;
+	}
+	return count;
+}
+
+
+int main()
+{
+	int n;
+	cin>>n;
+	int count=0;
+	while(n--)
+	{
+		count=0;
+		int num;
+		cin>>num;
+		cout<<numOfFive(num)<<endl;
+	}
+	return 0;
+}

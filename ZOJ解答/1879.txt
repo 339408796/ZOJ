@@ -1,0 +1,42 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<cmath>
+using namespace std;
+int a[3050];
+
+int main()
+{
+	int n;
+	int x,y;
+	while(cin>>n)
+	{
+		memset(a,0,sizeof(a));
+		if(n==1)
+		{
+			cin>>a[1];
+			cout<<"Jolly"<<endl;
+			continue;
+		}
+		cin>>x;
+		for(int i=0;i<n-1;++i)
+		{
+			int temp;
+			cin>>y;
+			temp=abs(y-x);
+			a[temp]=1;
+			x=y;
+		}
+		int i;
+		for(i=1;i<=n-1;++i)
+		{
+			if(a[i]==0)
+				break;
+		}
+		if(i==n)
+			cout<<"Jolly"<<endl;
+		else
+			cout<<"Not jolly"<<endl;
+	}
+	return 0;
+}

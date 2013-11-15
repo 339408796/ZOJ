@@ -1,0 +1,19 @@
+#include<iostream>
+#include<cstdio>
+#include<cmath>
+#define PI 3.1415927
+using namespace std;
+
+int main()
+{
+	double d,v,x=1.0/3.0;
+	while(cin>>d>>v)
+	{
+		if(d==0 && v==0)
+			return 0;
+		double result;
+		result=pow(d*d*d-6*v/PI,x);
+		printf("%.3lf\n",result);
+	}
+	return 0;
+}
