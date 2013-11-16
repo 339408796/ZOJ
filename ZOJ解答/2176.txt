@@ -1,0 +1,24 @@
+#include<iostream>
+#include<cstdio>
+using namespace std;
+int main()
+{
+	int n;
+	while(cin>>n)
+	{
+		if(n==-1)
+			return 0;
+		int pre=0;
+		int mile,time;
+		int sumMile=0;
+		while(n--)
+		{
+			cin>>mile>>time;
+			sumMile+=(time-pre)*mile;
+			pre=time;
+		}
+
+		printf("%d miles\n",sumMile);
+	}
+	return 0;
+}

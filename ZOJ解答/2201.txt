@@ -1,0 +1,19 @@
+#include<iostream>
+#include<cstdio>
+using namespace std;
+
+int main()
+{
+	int n;
+	cin>>n;
+	while(n--)
+	{
+		int x,y;
+		cin>>x>>y;
+		if(x<y)
+			printf("NO BRAINS\n");
+		else
+			printf("MMM BRAINS\n");
+	}
+	return 0;
+}

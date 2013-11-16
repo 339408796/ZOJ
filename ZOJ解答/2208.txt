@@ -1,0 +1,46 @@
+#include<iostream>
+#include<string>
+#include<cstdio>
+#include<cstring>
+#include<algorithm>
+using namespace std;
+string str;
+char a[25];
+string s[110];
+int main()
+{
+	int n;
+	while(cin>>n)
+	{
+		if(n==0)
+			return 0;
+		int i;
+		cin>>str;
+		int cnt=0;
+		for(string::size_type k=0;k<str.size();)
+		{
+			memset(a,' ',sizeof(a));
+			for(i=0;i<n;++i)
+			{
+				a[i]=str.at(k++);
+			}
+			a[i]='\0';
+			s[cnt++]=a;
+		}
+		for(i=0;i<cnt;++i)
+		{
+			if(i%2==1)
+				reverse(s[i].begin(),s[i].end());
+		//	cout<<s[i];
+		}
+		for(int j=0;j<n;++j)
+		{
+			for(i=0;i<cnt;++i)
+			{
+				cout<<s[i].at(j);
+			}
+		}
+		cout<<endl;
+	}
+	return 0;
+}

@@ -1,0 +1,64 @@
+#include<iostream>
+using namespace std;
+typedef struct
+{
+	float speed;
+	float weight;
+	float strength;
+}person;
+person wr,li,qu;
+
+bool cmp(person a,person b)
+{
+	if(a.speed<=b.speed && a.weight>=b.weight && a.strength>=b.strength)
+		return 1;
+	else
+		return 0;
+}
+int main()
+{
+	wr.speed=4.5;wr.weight=150;wr.strength=200;
+	li.speed=6.0;li.weight=300;li.strength=500;
+	qu.speed=5.0;qu.weight=200;qu.strength=300;
+	float sp,w,st;bool flag=1;
+	while(cin>>sp>>w>>st)
+	{
+		flag=1;
+		if(sp==0 && w==0 && st==0)
+			return 0;
+		person p;
+		p.speed=sp;p.weight=w;p.strength=st;
+		if(cmp(p,wr))
+		{
+			cout<<"Wide Receiver";
+			flag=0;
+		}
+		if(cmp(p,li))
+			if(flag)
+			{
+				cout<<"Lineman";
+				flag=0;
+			}
+			else
+			{
+				cout<<" Lineman";
+				flag=0;
+			}
+
+		if(cmp(p,qu))
+			if(flag)
+			{
+				cout<<"Quarterback";
+				flag=0;
+			}
+			else
+			{
+				cout<<" Quarterback";
+				flag=0;
+			}
+		if(flag)
+			cout<<"No positions";
+		cout<<endl;
+	}
+	return 0;
+}
