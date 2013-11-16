@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n;
+	while(cin>>n)
+	{
+		if(n==0)
+			return 0;
+		int time=0;
+		int floor;
+		int pre=0;
+		time+=n*5;
+		while(n--)
+		{
+			cin>>floor;
+			if(floor>pre)
+				time+=(floor-pre)*6;
+			else
+				time+=(pre-floor)*4;
+			pre=floor;
+		}
+		
+		cout<<time<<endl;
+	}
+	return 0;
+}

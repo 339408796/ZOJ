@@ -1,0 +1,36 @@
+#include<iostream>
+#include<cstdio>
+#define INF 100000000
+using namespace std;
+int minx,miny,manx,many;
+int main()
+{
+	int x,y;
+	bool flag=1;
+	minx=INF,miny=INF,manx=0,many=0;
+	while(cin>>x>>y)
+	{
+		if(x==0 && y==0 && flag==0)
+		{
+			return 0;
+		}
+		flag=1;
+		if(x==0 && y==0 && flag==1)
+		{
+			printf("%d %d %d %d\n",minx,miny,manx,many);
+			minx=INF,miny=INF,manx=0,many=0;
+			flag=0;
+			continue;
+		}
+		if(minx>x)
+			minx=x;
+		if(miny>y)
+			miny=y;
+		if(manx<x)
+			manx=x;
+		if(many<y)
+			many=y;
+		
+	}
+	return 0;
+}

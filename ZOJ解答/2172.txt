@@ -1,0 +1,46 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<cstdio>
+using namespace std;
+vector<string> v1;
+vector<string> v2;
+int main()
+{
+	int n;int k=1;
+	while(cin>>n)
+	{
+		if(n==0)
+			return 0;
+		v1.clear();
+		v2.clear();
+		for(int i=0;i<n;++i)
+		{
+			string str;
+			cin>>str;
+			v1.push_back(str);
+		}
+		vector<string>::size_type i;
+		for(i=0;i<v1.size();i=i+2)
+		{
+			v2.push_back(v1.at(i));
+		}
+		if(v1.size()>1)
+		{
+			for(i=(v1.size()%2==0?v1.size()-1:v1.size()-2);i>=0;)
+			{
+				v2.push_back(v1.at(i));
+				if(i>=2)
+					i=i-2;
+				else
+					break;
+			}
+		}
+		printf("SET %d\n",k++);
+		for(i=0;i<v2.size();++i)
+		{
+			cout<<v2.at(i)<<endl;
+		}
+	}
+	return 0;
+}
