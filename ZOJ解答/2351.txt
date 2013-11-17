@@ -1,0 +1,22 @@
+//这题题目没看懂
+#include<iostream>
+#include <cstdio>
+#include <cmath>
+using namespace std;
+int main()
+{
+	int m, n, N;
+	double a, b , ph;
+	cin>>N;
+	while (N--)
+	{
+		while(cin>>a>>b>>m>>n)
+		{
+			if (m == 0 && n == 0 && a == 0 && b == 0) break;
+			ph = -log10((sqrt(a*a + 4*a*b*m*n) - a)/2/n);
+			printf("%.3lf\n", ph);
+		}
+		if (N) printf("\n");
+	}
+	return 0;
+}

@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+
+int base10(int num)
+{
+	int result=0;
+	while(num)
+	{
+		result+=num%10;
+		num/=10;
+	}
+	return result;
+}
+int base12(int num)
+{
+	int result=0;
+	while(num)
+	{
+		result+=num%12;
+		num/=12;
+	}
+	return result;
+}
+int base16(int num)
+{
+	int result=0;
+	while(num)
+	{
+		result+=num%16;
+		num/=16;
+	}
+	return result;
+}
+
+int main()
+{
+	for(int i=1000;i<=9999;++i)
+	{
+		int a,b,c;
+		a=base10(i);
+		b=base12(i);
+		c=base16(i);
+		if(a==b && a==c && c==b)
+		{
+			cout<<i<<endl;
+		}
+	}
+	return 0;
+}
